@@ -4,6 +4,32 @@
 $( document ).ready( onReady );
 
 function onReady(){
-console.log('jq works');
+
+    $('#submitEmployee').on('click', addingEmployee);
+}// end of onReady function
+
+let employees = [];
+
+function addingEmployee(){
+
+    let employeeObject = {
+        firstName: $('#firstNameInput').val(),
+        lastName: $('#lastNameInput').val(),
+        idNumber: $('#idInput').val(),
+        jobTitle: $('#jobInput').val(),
+        annualSalary: $('#salaryInput').val()
+    }
+    $( '#firstNameInput' ).val( '' );
+    $( '#lastNameInput' ).val( '' );
+    $( '#idInput' ).val( '' );
+    $( '#jobInput' ).val( '' );
+    $( '#salaryInput' ).val( '' );
+    //emptying out the object
+    employees.push(employeeObject);
+}// end of addingEmpoloyees
+//pushing the employees to the array employees
+
+function displayEmployees(){
+
+    
 }
-console.log('hello');
