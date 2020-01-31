@@ -6,9 +6,11 @@ $( document ).ready( onReady );
 function onReady(){
 
     $('#submitEmployee').on('click', addingEmployee);
+    $('#employeesList').on('click', '#deleteButton', deleteEmployee);
 }// end of onReady function
 
 let employees = [];
+let totalMonthlyCost = 0;
 
 function addingEmployee(){
 
@@ -26,10 +28,20 @@ function addingEmployee(){
     $( '#salaryInput' ).val( '' );
     //emptying out the object
     employees.push(employeeObject);
+    displayEmployees();
 }// end of addingEmpoloyees
 //pushing the employees to the array employees
 
 function displayEmployees(){
-
+    let el = $('#employeesList');
+    el.empty();
+for(i=0; i<employees.length; i++){
     
+    el.append(`<li> ${employees[i].firstName} ${employees[i].lastName} ${employees[i].idNumber}
+     ${employees[i].jobTitle} ${employees[i].annualSalary}<button id="deleteButton">Delete</button></li>`);
+} //end of displayEmployees
+
+}
+function deleteEmployee(){
+ 
 }
