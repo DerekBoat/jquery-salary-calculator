@@ -3,13 +3,16 @@
 //The application should have an input form that collects employee first name, last name, ID number, job title, annual salary.
 $( document ).ready( onReady );
 
+let employees = [];
+
+
 function onReady(){
 
     $('#submitEmployee').on('click', addingEmployee);
-    $('#employeesList').on('click', '#deleteButton', deleteEmployee);
+    $('#employeesList').on('click', '.deleteButton', deleteEmployee);
 }// end of onReady function
 
-let employees = [];
+
 
 
 function addingEmployee(){
@@ -37,24 +40,53 @@ function displayEmployees(){
     let el = $('#employeesList');
     el.empty();
 for(i=0; i<employees.length; i++){
-    
-    el.append(`<li> ${employees[i].firstName} ${employees[i].lastName} ${employees[i].idNumber}
-     ${employees[i].jobTitle} ${employees[i].annualSalary}<button id="deleteButton">Delete</button></li>`);
+    el.append('<tr>' + '<td>' + employees[i].firstName + '</td>' + '<td>' + employees[i].lastName + 
+    '</td>' + '<td>' + employees[i].idNumber + '</td>' + '<td>' + employees[i].jobTitle + '</td>'
+    + '<td>' + employees[i].annualSalary + '</td>' +  '<td>' + '<button class="deleteButton">Delete</button>'
+    + '</td>' + '</tr>');
+}
+
 } //end of displayEmployees
 
-}
+
 function deleteEmployee(){
- 
+ let el = $(this).parent().parent();
+    el.remove();
+    // for(i=0; i<employees.length; i++){
+    //     delete empoloyees[i];
+// }
 }
 
 function monthlyCost(){
     
     let totalMonthlyCost = 0;
+ 
     for(i=0; i<employees.length; i++){
+       
         totalMonthlyCost += Number(employees[i].annualSalary/12); 
         let el = $('#monthlyCost');
         console.log(totalMonthlyCost);
         el.empty();
-        el.append(`${totalMonthlyCost}`);
+        el.append(`Total Monthly Cost: $${totalMonthlyCost}`);
     }
+    
 }//end of monthlyCost
+
+// function backgrounRed(){
+//     let el = $( this );
+//     if(totalMonthlyCost > 20000){
+//         el.text() === redTotal
+//     }
+//     else{
+
+// }
+
+// function digSong(){
+//     console.log("dig song");
+//     let el = $( this ); //the
+//     if( el.text() === 'Dig'){
+//         el.text( 'Hate' );
+//     }
+//     else{
+//         el.text( 'Dig');
+//     }
