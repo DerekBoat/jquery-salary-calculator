@@ -48,13 +48,13 @@ function deleteEmployee(){
 }
 
 function monthlyCost(){
-    let el = $('#monthlyCost');
-    el.empty();
+    
     let totalMonthlyCost = 0;
     for(i=0; i<employees.length; i++){
         totalMonthlyCost += Number(employees[i].annualSalary/12); 
+        let el = $('#monthlyCost');
         console.log(totalMonthlyCost);
-       el.append(`${totalMonthlyCost}`);
-    
+        el.empty();
+        el.append(`${totalMonthlyCost}`);
     }
 }//end of monthlyCost
