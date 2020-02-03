@@ -52,6 +52,7 @@ for(i=0; i<employees.length; i++){
 function deleteEmployee(){
  let el = $(this).parent().parent();
     el.remove();
+    employees.splice(employees.indexOf());
     // for(i=0; i<employees.length; i++){
     //     delete empoloyees[i];
 // }
@@ -68,25 +69,11 @@ function monthlyCost(){
         console.log(totalMonthlyCost);
         el.empty();
         el.append(`Total Monthly Cost: $${totalMonthlyCost}`);
-    }
     
+    }
+    if(totalMonthlyCost > 20000){
+        $('#monthlyCost').css('background-color', 'red');
+    }
+    else{
+    }
 }//end of monthlyCost
-
-// function backgrounRed(){
-//     let el = $( this );
-//     if(totalMonthlyCost > 20000){
-//         el.text() === redTotal
-//     }
-//     else{
-
-// }
-
-// function digSong(){
-//     console.log("dig song");
-//     let el = $( this ); //the
-//     if( el.text() === 'Dig'){
-//         el.text( 'Hate' );
-//     }
-//     else{
-//         el.text( 'Dig');
-//     }
