@@ -10,7 +10,7 @@ function onReady(){
 }// end of onReady function
 
 let employees = [];
-let totalMonthlyCost = 0;
+
 
 function addingEmployee(){
 
@@ -29,6 +29,7 @@ function addingEmployee(){
     //emptying out the object
     employees.push(employeeObject);
     displayEmployees();
+    monthlyCost();
 }// end of addingEmpoloyees
 //pushing the employees to the array employees
 
@@ -45,3 +46,15 @@ for(i=0; i<employees.length; i++){
 function deleteEmployee(){
  
 }
+
+function monthlyCost(){
+    let el = $('#monthlyCost');
+    el.empty();
+    let totalMonthlyCost = 0;
+    for(i=0; i<employees.length; i++){
+        totalMonthlyCost += Number(employees[i].annualSalary/12); 
+        console.log(totalMonthlyCost);
+       el.append(`${totalMonthlyCost}`);
+    
+    }
+}//end of monthlyCost
