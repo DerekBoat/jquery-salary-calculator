@@ -56,7 +56,7 @@ function deleteEmployee(){
     // for(i=0; i<employees.length; i++){
     //     delete empoloyees[i];
 // }
-}
+}//this function deletes the employees on the button click
 
 function monthlyCost(){
     
@@ -77,3 +77,4 @@ function monthlyCost(){
     else{
     }
 }//end of monthlyCost
+//turning the cost red when over 20000, and calculating monthly cost. 
